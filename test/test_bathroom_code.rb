@@ -11,6 +11,17 @@ class BathroomCodeTest < Minitest::Test
     # 4 5 6
     # 7 8 9
     @code = BathroomCode.new
+    @code.load_keypad('example/default.txt')
+    @numbers = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+  end
+  def test_set_keypad_input
+    keypad = "123\n456\n789"
+    @code.set_keypad(keypad)
+    assert_equal(@code.numbers, @numbers)
+  end
+  def test_load_keypad
+    @code.load_keypad('example/default.txt')
+    assert_equal(@code.numbers, @numbers)
   end
   def test_current_coords
     assert_equal(@code.start_cords, @code.current_coords)
@@ -22,7 +33,7 @@ class BathroomCodeTest < Minitest::Test
     assert_equal(@code.start_point, 5)
   end
   def test_numbers
-    assert_equal(@code.numbers[1][2], 6)
+    assert_equal(@numbers[1][2], 6)
   end
   # move up from 5 to 2
   def test_move_up

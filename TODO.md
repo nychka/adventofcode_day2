@@ -7,3 +7,9 @@
 
 2. 1985 -> 5DB3
 3. Solve puzzle with previous input!
+
+
+TODO:
+1. Get keypad from file
+2. Set initial number on keypad
+3. Get code with moves for keypad
